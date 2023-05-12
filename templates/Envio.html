@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <main class="flex flex-col max-w-md mx-auto p-8 space-y-4 text-white">
+        <a href="/" class="text-center">
+            <h1 class="text-6xl text-amber-400 font-bold title">EL POPA</h1>
+            <h1 class="text-xl text-white">Barra de Snacks</h1>
+        </a>
+        <h1 class="text-center text-4xl text-amber-400 font-bold title">REALIZAR COMPRA</h1>
+        {% if msg %}
+            <div class="p-2 bg-[#392607] rounded-xl text-center">{{ msg }}</div>
+        {% endif %}
+        <form action="/hecho/" class="flex flex-col space-y-4">
+            <!--<img src="/static/Imagenes/{{ image }}" height="300" alt=" "/>-->
+            <input type="hidden" name="image" value="{{ image }}"/>
+            <input type="hidden" name="id" value="{{ id }}"/>
+            <input type="hidden" name="name" value="{{ name }}"/>
+            <input type="hidden" name="price" value="{{ price }}"/>
+            <div class="flex flex-col space-y-2">
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha" name="fecha" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="cel">Número de teléfono</label>
+                <input type="number" id="cel" name="cel" min="0" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="ciudad">Ciudad</label>
+                <input type="text" id="ciudad" name="ciudad" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="colonia">Colonia</label>
+                <input type="text" id="colonia" name="colonia" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="calle">Calle</label>
+                <input type="text" id="calle" name="calle" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="ncasa">Número de casa</label>
+                <input type="number" id="ncasa" name="ncasa" min="0" required
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
+                <button type="submit" formaction="/cancelar/"
+                        class="p-2 bg-[#392607] hover:bg-[#422C08] active:bg-[#332206] text-center rounded-xl transition-all duration-300">
+                    Cancelar
+                </button>
+                <button type="submit"
+                        class="p-2 bg-amber-400 hover:bg-[#FFDC29] active:bg-[#E2AC20] text-black font-bold rounded-xl transition-all duration-300">
+                    Reservar
+                </button>
+            </div>
+        </form>
+    </main>
+{% endblock %}

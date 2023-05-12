@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <main class="flex flex-col max-w-md mx-auto p-8 space-y-4">
+        <a href="/" class="text-center">
+            <h1 class="text-6xl text-amber-400 font-bold title">EL POPA</h1>
+            <h1 class="text-xl text-white">Barra de Snacks</h1>
+        </a>
+        <h1 class="text-center text-4xl text-amber-400 font-bold title">INICIAR SESIÓN</h1>
+        {% if msg %}
+            <div class="p-2 bg-[#392607] rounded-xl text-center">{{ msg }}</div>
+        {% endif %}
+        <form action="/ingresado/" method="post" class="flex flex-col space-y-4">
+            <div class="flex flex-col space-y-2">
+                <label for="username">Nombre de usuario</label>
+                <input type="text" id="username" name="username" autofocus
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="flex flex-col space-y-2">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password"
+                       class="p-2 rounded-xl bg-stone-900 outline-none focus:outline-amber-400 transition-all duration-300">
+            </div>
+            <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
+                <button type="reset"
+                        class="p-2 bg-[#392607] hover:bg-[#422C08] active:bg-[#332206] text-center rounded-xl transition-all duration-300">
+                    Limpiar
+                </button>
+                <button type="submit"
+                        class="p-2 bg-amber-400 hover:bg-[#FFDC29] active:bg-[#E2AC20] text-black font-bold rounded-xl transition-all duration-300">
+                    Ingresar
+                </button>
+            </div>
+        </form>
+    </main>
+{% endblock %}
