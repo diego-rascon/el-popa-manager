@@ -78,7 +78,7 @@ def registration():
     new = db.execute(
         "INSERT INTO Usuario (username, password, fname, pname, mname, email)VALUES(:username, :password, :fname, :pname, :mname, :email)",
         username=username, password=password, fname=fname, pname=pname, mname=mname, email=email)
-    return render_template("ingresar.html", msg="Registro correcto")
+    return render_template("Ingresar.html", msg="Registro correcto")
 
 
 @app.route("/ingresar/", methods=["GET"])
